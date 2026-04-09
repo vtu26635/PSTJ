@@ -1,0 +1,41 @@
+package tasks;
+import java.util.*;
+
+public class ContainsDuplicate {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input size
+        System.out.print("Enter size of array: ");
+        int n = sc.nextInt();
+
+        int[] nums = new int[n];
+
+        // Input elements
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        boolean result = containsDuplicate(nums);
+
+        System.out.println("Contains Duplicate: " + result);
+
+        sc.close();
+    }
+
+    public static boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            if (set.contains(num)) {
+                return true; // duplicate found
+            }
+            set.add(num);
+        }
+
+        return false; // all elements are unique
+    }
+}
+
